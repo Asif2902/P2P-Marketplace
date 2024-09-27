@@ -259,7 +259,7 @@ async function switchToMinatoNetwork() {
     }
 }
 
-// Automatically call the function when the page loads
+
 window.addEventListener('load', async () => {
     await switchToMinatoNetwork();
 });
