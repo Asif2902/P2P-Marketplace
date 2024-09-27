@@ -150,6 +150,20 @@ const erc20Abi = [
         "type": "function"
     },
     {
+    "constant": true,
+    "inputs": [],
+    "name": "name",
+    "outputs": [
+      {
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+    {
         "constant": false,
         "inputs": [
             {
@@ -215,6 +229,29 @@ document.getElementById('connectWallet').addEventListener('click', async () => {
     }
 });
 
+document.getElementById('tokenContract').addEventListener('input', async () => {
+        const tokenContractAddress = document.getElementById('tokenContract').value;
+
+        if (ethers.utils.isAddress(tokenContractAddress)) {
+            try {
+                // Initialize the token contract
+                const tokenContract = new ethers.Contract(tokenContractAddress, erc20Abi, signer);
+
+                // Fetch the token name
+                const tokenName = await tokenContract.name();
+
+                // Set the fetched token name in the input field
+                document.getElementById('tokenName').value = tokenName;
+            } catch (error) {
+                console.error('Error fetching token name:', error);
+                document.getElementById('tokenName').value = ''; // Clear token name if error
+            }
+        } else {
+            document.getElementById('tokenName').value = ''; // Clear token name if the address is invalid
+        }
+    });
+
+    // Create order logic
     document.getElementById('createOrder').addEventListener('click', async () => {
         const tokenContractAddress = document.getElementById('tokenContract').value;
         const tokenName = document.getElementById('tokenName').value;
@@ -247,6 +284,7 @@ document.getElementById('connectWallet').addEventListener('click', async () => {
             alert('Failed to create order or approve token spending.');
         }
     });
+
 async function fetchOrders() {
     const address = await signer.getAddress();
     const orders = await contract.getUserOrders(address);
