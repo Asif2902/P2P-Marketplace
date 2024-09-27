@@ -213,50 +213,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 document.getElementById('connectWallet').addEventListener('click', async () => {
-    // Network configuration for Minato Testnet
-    const minatoNetwork = {
-        chainId: '0x79a', // Hexadecimal for 1946
-        chainName: 'Minato',
-        nativeCurrency: {
-            name: 'Minato ETH',
-            symbol: 'ETH',
-            decimals: 18
-        },
-        rpcUrls: ['https://rpc.minato.soneium.org'],
-        blockExplorerUrls: ['https://explorer-testnet.soneium.org']
-    };
-
     if (typeof window.ethereum !== 'undefined') {
-        try {
-            // Check if the Minato network is added to MetaMask
-            await window.ethereum.request({
-                method: 'wallet_addEthereumChain',
-                params: [minatoNetwork]
-            });
-
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            await provider.send("eth_requestAccounts", []);
-            const signer = provider.getSigner();
-            const address = await signer.getAddress();
-
-            // Update the connected address in the UI
-            document.getElementById('walletAddress').innerText = address.slice(0, 6) + '...' + address.slice(-4);
-            document.getElementById('connectWallet').style.display = 'none'; 
-
-            // Create a contract instance with the Minato network signer
-            const contract = new ethers.Contract(contractAddress, abi, signer);
-
-            // Call fetchOrders or any other contract-related functions
-            fetchOrders();
-        } catch (error) {
-            console.error('Error connecting to Minato network:', error);
-            alert('Failed to connect to Minato testnet.');
-        }
+        provider = new ethers.providers.Web3Provider(window.ethereum);
+        await provider.send("eth_requestAccounts", []);
+        signer = provider.getSigner();
+        contract = new ethers.Contract(contractAddress, abi, signer);
+        const address = await signer.getAddress();
+        
+        document.getElementById('walletAddress').innerText = address.slice(0, 6) + '...' + address.slice(-4);
+       
+        document.getElementById('connectWallet').style.display = 'none'; 
+        fetchOrders();
     } else {
         alert('Please install MetaMask!');
     }
 });
-
 
 document.getElementById('tokenContract').addEventListener('input', async () => {
         const tokenContractAddress = document.getElementById('tokenContract').value;
