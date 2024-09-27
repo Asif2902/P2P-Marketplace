@@ -229,6 +229,43 @@ document.getElementById('connectWallet').addEventListener('click', async () => {
     }
 });
 
+async function switchToMinatoNetwork() {
+    // Minato Testnet Network configuration
+    const minatoNetwork = {
+        chainId: '0x79a', // Hexadecimal for 1946
+        chainName: 'Minato',
+        nativeCurrency: {
+            name: 'Minato ETH',
+            symbol: 'ETH',
+            decimals: 18
+        },
+        rpcUrls: ['https://rpc.minato.soneium.org'],
+        blockExplorerUrls: ['https://explorer-testnet.soneium.org']
+    };
+
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            // Check if the Minato network is already added to MetaMask
+            await window.ethereum.request({
+                method: 'wallet_addEthereumChain',
+                params: [minatoNetwork]
+            });
+            console.log('Switched to Minato network');
+        } catch (error) {
+            console.error('Error switching to Minato network:', error);
+            alert('Failed to switch to the Minato testnet.');
+        }
+    } else {
+        alert('MetaMask is not installed. Please install MetaMask and try again.');
+    }
+}
+
+
+document.getElementById('switchNetwork').addEventListener('click', async () => {
+    await switchToMinatoNetwork();
+});
+
+
 document.getElementById('tokenContract').addEventListener('input', async () => {
         const tokenContractAddress = document.getElementById('tokenContract').value;
 
