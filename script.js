@@ -228,6 +228,9 @@ document.getElementById('connectWallet').addEventListener('click', async () => {
         alert('Please install MetaMask!');
     }
 });
+document.getElementById('switchNetwork').addEventListener('click', async () => {
+    await switchToMinatoNetwork();
+});
 
 async function switchToMinatoNetwork() {
     // Minato Testnet Network configuration
@@ -261,9 +264,6 @@ async function switchToMinatoNetwork() {
 }
 
 
-document.getElementById('switchNetwork').addEventListener('click', async () => {
-    await switchToMinatoNetwork();
-});
 
 
 document.getElementById('tokenContract').addEventListener('input', async () => {
