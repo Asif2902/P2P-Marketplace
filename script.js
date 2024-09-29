@@ -189,7 +189,7 @@ const erc20Abi = [
 ];
 
 
-const contractAddress = "0xD40f2fcd000649a8552f4b5bD80853853666EE3e";
+const contractAddress = "0xE534119307362DB466BF7196c403EB6B9c121aC5";
 let provider;
 let signer;
 let contract;
