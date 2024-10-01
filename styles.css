@@ -7,14 +7,14 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #000; /* Black background for the body */
+    color: #fff; /* White text */
     padding: 20px;
 }
 
 /* Header Styles */
 header {
-    background-color: #4CAF50;
+    background-color: #00FFAB; /* Bright green for header */
     padding: 15px;
     text-align: center;
     color: white;
@@ -30,47 +30,58 @@ header {
     margin: 20px auto;
     padding: 20px;
     max-width: 800px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #1c1c1c; /* Dark grey for main container */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Soft white shadow */
     border-radius: 10px;
 }
 
 /* Page Heading */
-h1 {
+h1, h3 {
     margin: 2px;
-    font-size: 2.0em;
     font-family: 'Clash Grotesk', sans-serif;
+    color: #fff; /* White headings */
 }
-h3  {
-    margin: 2px;
+
+h1 {
+    font-size: 2.0em;
+}
+
+h3 {
     font-size: 1.0em;
-    font-family: 'Clash Grotesk', sans-serif;
 }
 
 /* Input Forms */
 input[type="text"], input[type="number"] {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    border: 1px solid #444; /* Dark border */
+    border-radius: 8px;
+    background-color: #333; /* Dark background for input */
+    color: #fff; /* White text */
+    transition: border-color 0.3s;
 }
 
-button {
-    margin-top: 20px;
-    margin-bottom: 20px; 
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #00FFAB; /* Bright green on focus */
+}
+
+/* Button Styles */
+button, nav a, nav button {
+    margin: 20px 0; 
     padding: 10px;
     text-decoration: none;
-    background-color: black;
+    background-color: #4169E1; /* Black background for buttons */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #45a049;
+button:hover, nav a:hover, nav button:hover {
+    background-color: #0437F2; 
 }
 
 /* Pages */
@@ -86,21 +97,16 @@ button:hover {
     width: 100%;
 }
 
-input {
-    margin-bottom: 15px;
-}
-
-
 /* Footer Styles */
 footer {
     margin-top: 30px;
     text-align: center;
     font-size: 14px;
-    color: #777;
+    color: #777; /* Light grey for footer text */
 }
 
 footer a {
-    color: #4CAF50;
+    color: #00FFAB; /* Bright green for links */
     text-decoration: none;
 }
 
@@ -108,54 +114,41 @@ footer a:hover {
     text-decoration: underline;
 }
 
-section{
-  padding: 5px;
-  margin: 5px;
-  border: 1px solid #ddd;
-}
-
-nav a, nav button 
-{
-    margin-top: 20px;
-    margin-bottom: 20px; 
+/* Section Styling */
+section {
     padding: 10px;
-    text-decoration: none;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-nav button {
-    cursor: pointer; /* Pointer cursor on hover */
+    margin: 10px 0;
+    border: 1px solid #444; /* Dark border */
+    border-radius: 8px; /* Rounded corners */
 }
 
+/* Wallet Address Display */
 #walletAddress {
-  display: flex;
+    display: flex;
     justify-content: center;
-            font-size: 20px; 
-            gap: 10px; /* Space between buttons */
-    margin-top: 20px; /* Adds gap above the buttons */
-    margin-bottom: 5px; 
-        }
-        
-        #home {
+    font-size: 20px; 
+    gap: 10px; /* Space between buttons */
+    margin: 20px 0; /* Adds gap above and below */
+}
+
+/* Home Section */
+#home {
     padding: 0;    /* Remove padding */
     margin: 0;     /* Remove margin */
     border: none;  /* Remove border */
 }
 
+/* Paragraphs and Lists */
 p {
-  padding: 5px;
-  margin: 5px;
-  border: 1px solid black;
-  word-break: break-all;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #444; /* Dark border for paragraphs */
+    word-break: break-all;
 }
 
 li {
-  padding: 5px;
-  margin: 5px;
-  border: 1px solid black;
-  
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #444; /* Dark border for list items */
+    border-radius: 8px; /* Rounded corners */
 }
