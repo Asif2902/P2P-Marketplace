@@ -77,17 +77,6 @@ button, a {
     display: inline-block; /* Ensures that the element behaves like a button */
 }
 
-button:hover, nav a:hover, nav button:hover {
-    background-color: #00d88b; /* Darker blue on hover */
-}
-
-nav a {
-    display: inline-block; /* Keep nav links inline */
-}
-
-button:hover, nav a:hover, nav button:hover {
-    background-color: #00FFAB; 
-}
 
 /* Pages */
 .page {
@@ -119,29 +108,13 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Section Styling */
-section {
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #00FFAB; /* Dark border */
-    border-radius: 8px; /* Rounded corners */
-}
-
 /* Wallet Address Display */
 #walletAddress {
     display: flex;
     justify-content: center;
     font-size: 20px; 
-    gap: 10px; /* Space between buttons */
-    margin: 20px 0; /* Adds gap above and below */
 }
 
-/* Home Section */
-#home {
-    padding: 0;    /* Remove padding */
-    margin: 0;     /* Remove margin */
-    border: none;  /* Remove border */
-}
 
 /* Paragraphs and Lists */
 p {
@@ -153,6 +126,25 @@ p {
 }
 
 .info-section {
+  border: 2px solid #00FFAB; /* Add green border */
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #bec4cf;
+  background: linear-gradient(135deg, #0d1120 0%, #3a4b8a 43%, #0d1120 100%);
+  padding: 1.5rem;
+  border-radius: 1.2rem;
+}
+.bgblue {
+  background: linear-gradient(135deg, #fffffff5, #3a4b8a, #ffffff98);
+  padding: 1px;
+  border-radius: 1.2rem;
+  box-shadow: 0px 1rem 1.5rem -0.9rem #000000e1;
+  max-width: 300px;
+}
+
+.section {
   border: 2px solid #00FFAB; /* Add green border */
   border-radius: 12px;
   padding: 15px;
