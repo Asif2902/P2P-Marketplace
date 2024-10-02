@@ -157,6 +157,7 @@ p {
     margin: 10px 0;
     border: 1px solid #444; /* Dark border for paragraphs */
     word-break: break-all;
+    text-decoration: none;
 }
 
 .info-section {
