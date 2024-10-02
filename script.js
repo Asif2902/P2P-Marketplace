@@ -330,7 +330,7 @@ async function fetchOrders() {
         if (order.active) {
             myOrdersHtml += `
                 <div>
-                    <code>Unique Name: ${uniqueName}</code>
+                    <p>Unique Name: ${uniqueName}</p>
                     <button onclick="cancelOrder('${uniqueName}')">Cancel Order</button>
                 </div>
             `;
@@ -359,13 +359,13 @@ document.getElementById('fetchOrder').addEventListener('click', async () => {
     const decimals = await tokenContract.decimals();
     const tokenAmountFormatted = ethers.utils.formatUnits(order.tokenAmount, decimals);
     const orderDetails = `
-        <code>Seller: <a href="https://explorer-testnet.soneium.org/address/${order.seller}" target="_blank">${order.seller}</a></code>
-        <code>Token Contract: <a href="https://explorer-testnet.soneium.org/address/${order.tokenContract}" target="_blank">${order.tokenContract}</a></code>
-        <code>Token Name: ${order.tokenName}</code>
-        <code>Token Amount: ${tokenAmountFormatted}</code>
-        <code>Price in ETH: ${ethers.utils.formatEther(order.priceInETH)}</code>
-        <code>Expiration Time: ${new Date(order.expirationTime * 1000).toLocaleString()}</code>
-        <code>Active: ${order.active}</code>
+        <p>Seller: <a href="https://explorer-testnet.soneium.org/address/${order.seller}" target="_blank">${order.seller}</a></p>
+        <p>Token Contract: <a href="https://explorer-testnet.soneium.org/address/${order.tokenContract}" target="_blank">${order.tokenContract}</a></p>
+        <p>Token Name: ${order.tokenName}</p>
+        <p>Token Amount: ${tokenAmountFormatted}</p>
+        <p>Price in ETH: ${ethers.utils.formatEther(order.priceInETH)}</p>
+        <p>Expiration Time: ${new Date(order.expirationTime * 1000).toLocaleString()}</p>
+        <p>Active: ${order.active}</p>
         <button id="payButton">Pay</button>
     `;
     
