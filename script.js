@@ -389,3 +389,21 @@ async function buyOrder(uniqueName, priceInETH) {
         alert('Failed to purchase order.');
     }
 }
+    // Toggle menu visibility
+    document.querySelector('.menu-btn').addEventListener('click', function() {
+      const menuContent = document.querySelector('.menu-content');
+      menuContent.style.display = menuContent.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Close the dropdown if clicked outside
+    window.onclick = function(event) {
+      if (!event.target.matches('.menu-btn')) {
+        var dropdowns = document.getElementsByClassName("menu-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.style.display === 'block') {
+            openDropdown.style.display = 'none';
+          }
+        }
+      }
+    }
