@@ -159,9 +159,9 @@ p {
     word-break: break-all;
 }
 
-li {
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #444; /* Dark border for list items */
-    border-radius: 8px; /* Rounded corners */
+.info-section {
+  border: 2px solid #00FFAB; /* Add green border */
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 20px;
 }
