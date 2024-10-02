@@ -14,7 +14,7 @@ body {
 
 /* Header Styles */
 header {
-    background-color: #00FFAB; /* Bright green for header */
+    
     padding: 15px;
     text-align: center;
     color: white;
@@ -67,17 +67,30 @@ input[type="text"]:focus, input[type="number"]:focus {
 }
 
 /* Button Styles */
-button, nav a, nav button {
-    margin: 20px 0; 
-    padding: 10px;
+button, a {
+    margin: 1px 0;
+    padding: 10px 20px; /* Added more padding for better button size */
     text-decoration: none;
-    background-color: #4169E1; /* Black background for buttons */
-    color: white;
+    background-color: #00FFAB; /* Royal blue background for buttons */
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+    black-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Display "..." when text overflows */
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    display: inline-block; /* Ensures that the element behaves like a button */
+}
+
+button:hover, nav a:hover, nav button:hover {
+    background-color: #00d88b; /* Darker blue on hover */
+}
+
+nav a {
+    display: inline-block; /* Keep nav links inline */
 }
 
 button:hover, nav a:hover, nav button:hover {
