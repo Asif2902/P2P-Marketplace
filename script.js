@@ -331,7 +331,8 @@ async function fetchOrders() {
             myOrdersHtml += `
                 <div>
                     <p>Unique Name: ${uniqueName}</p>
-                    <button onclick="cancelOrder('${uniqueName}')">Cancel Order</button>
+                    <button onclick="cancelOrder('${uniqueName}')"> <i
+                    class="fas fa-times"></i>Cancel Order</button>
                 </div>
             `;
         }
@@ -366,7 +367,7 @@ document.getElementById('fetchOrder').addEventListener('click', async () => {
         <p>Price in ETH: ${ethers.utils.formatEther(order.priceInETH)}</p>
         <p>Expiration Time: ${new Date(order.expirationTime * 1000).toLocaleString()}</p>
         <p>Active: ${order.active}</p>
-        <button id="payButton">Pay</button>
+        <button id="payButton">  <i class="fas fa-credit-card"></i>Pay</button>
     `;
     
     document.getElementById('orderDetails').innerHTML = orderDetails;
