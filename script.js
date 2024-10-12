@@ -189,7 +189,7 @@ const erc20Abi = [
 ];
 
 
-const contractAddress = "0x1418a31153bc796a8fEe5989e503dfde685F756F";
+const contractAddress = "0x56645E87EbF809B9DcBA7eAaaF1fF6f691Bce43F";
 let provider;
 let signer;
 let contract;
@@ -228,31 +228,29 @@ document.getElementById('connectWallet').addEventListener('click', async () => {
         alert('Please install MetaMask!');
     }
 });
-async function switchToMinatoNetwork() {
-    // Minato Testnet Network configuration
-    const minatoNetwork = {
-        chainId: '0x79a', // Hexadecimal for 1946
-        chainName: 'Minato',
+async function switchToUnichainNetwork() {
+    const unichainNetwork = {
+        chainId: '0x515', // Hexadecimal for 1301
+        chainName: 'Unichain',
         nativeCurrency: {
-            name: 'Minato ETH',
+            name: 'ETH',
             symbol: 'ETH',
             decimals: 18
         },
-        rpcUrls: ['https://rpc.minato.soneium.org'],
-        blockExplorerUrls: ['https://explorer-testnet.soneium.org']
+        rpcUrls: ['https://sepolia.unichain.org'],
+        blockExplorerUrls: ['https://sepolia.uniscan.org']
     };
 
     if (typeof window.ethereum !== 'undefined') {
         try {
-            // Automatically switch to the Minato network when the page loads
             await window.ethereum.request({
                 method: 'wallet_addEthereumChain',
-                params: [minatoNetwork]
+                params: [unichainNetwork]
             });
-            console.log('Switched to Minato network');
+            console.log('Switched to unichain network');
         } catch (error) {
-            console.error('Error switching to Minato network:', error);
-            alert('Failed to switch to the Minato testnet.');
+            console.error('Error switching to unichain network:', error);
+            alert('Failed to switch to the unichain testnet.');
         }
     } else {
         alert('MetaMask is not installed. Please install MetaMask and try again.');
@@ -261,7 +259,7 @@ async function switchToMinatoNetwork() {
 
 
 window.addEventListener('load', async () => {
-    await switchToMinatoNetwork();
+    await switchToUnichainNetwork();
 });
 
 document.getElementById('tokenContract').addEventListener('input', async () => {
